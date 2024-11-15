@@ -36,7 +36,7 @@ export default function App() {
         const _earthquakes = transform(data);
         setEarthquakes(_earthquakes);
 
-        const filtered = earthquakes.filter((earthquake) => {
+        const filtered = _earthquakes.filter((earthquake) => {
             const isMagnitudeValid = earthquake.mag >= magFilter;
 
             const distance = calcDistance(
