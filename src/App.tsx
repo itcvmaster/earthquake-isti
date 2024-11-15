@@ -21,7 +21,6 @@ import useQuery from "./hooks/useQuery";
 */
 
 export default function App() {
-    const [earthquakes, setEarthquakes] = useState<IEarthquake[]>([]);
     const [filteredData, setFilteredData] = useState<IEarthquake[]>([]);
     const { data, isPending } = useQuery<EarthquakeResponse>(EarthquakeApi.fetchEarthquakes);
 
@@ -34,8 +33,6 @@ export default function App() {
         if (!data) return;
 
         const _earthquakes = transform(data);
-        setEarthquakes(_earthquakes);
-
         const filtered = _earthquakes.filter((earthquake) => {
             const isMagnitudeValid = earthquake.mag >= magFilter;
 
